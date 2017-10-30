@@ -75,7 +75,7 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329
 # HALs
 PRODUCT_PACKAGES += \
     audio.primary.grouper \
-    lights.grouper
+    lights.transformer
 
 # Sensors
 PRODUCT_COPY_FILES += \
