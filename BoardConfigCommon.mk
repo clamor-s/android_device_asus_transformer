@@ -64,6 +64,9 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_CUSTOM_BT_CONFIG := device/asus/transformer/bluetooth/vnd_transformer.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/asus/transformer/bluetooth
 
+# Sensors
+BOARD_USES_INVENSENSE_GYRO := INVENSENSE_MPU3050
+
 # Dump State
 BOARD_HAL_STATIC_LIBRARIES := libdumpstate.transformer
 
