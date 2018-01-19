@@ -142,7 +142,6 @@ protected:
     int estimateCompassAccuracy();
     void loadCompassCalibrationEnabler(void* h_dmp_lib, const char* suffix);
     void enable9Axis(int enable);
-    virtual int64_t now_ns();
     virtual int update_delay();
 
     void resetAccelWindow();

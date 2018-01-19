@@ -1162,16 +1162,6 @@ int MPLSensor::update_delay()
     return rv;
 }
 
-/* return the current time in nanoseconds */
-int64_t MPLSensor::now_ns(void)
-{
-    struct timespec ts;
-
-    clock_gettime(CLOCK_MONOTONIC, &ts);
-    //ALOGV("Time %lld", (int64_t)ts.tv_sec * 1000000000 + ts.tv_nsec);
-    return (int64_t) ts.tv_sec * 1000000000 + ts.tv_nsec;
-}
-
 int MPLSensor::readEvents(sensors_event_t* data, int count)
 {
     VFUNC_LOG;
@@ -1204,13 +1194,12 @@ int MPLSensor::readEvents(sensors_event_t* data, int count)
         return 0;
     }
     mNewData = 0;
-    int64_t tt = now_ns();
     pthread_mutex_lock(&mMplMutex);
     for (int i = 0; i < numSensors; i++) {
         if (mEnabled & (1 << i)) {
             CALL_MEMBER_FN(this,mHandlers[i])(mPendingEvents + i,
                                               &mPendingMask, i);
-            mPendingEvents[i].timestamp = tt;
+            mPendingEvents[i].timestamp = getTimestamp();
         }
     }
 
