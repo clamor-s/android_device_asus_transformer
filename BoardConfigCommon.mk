@@ -15,6 +15,8 @@
 include hardware/nvidia/tegra3/BoardConfigCommon.mk
 
 TARGET_BOOTLOADER_BOARD_NAME := transformer
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
 
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
