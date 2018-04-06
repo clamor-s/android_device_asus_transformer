@@ -14,13 +14,13 @@
 # limitations under the License.
 #
 
-# Inherit from grouper device
-$(call inherit-product, device/asus/grouper/device.mk)
+# Inherit from tf device
+$(call inherit-product, device/asus/transformer/device.mk)
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
-PRODUCT_NAME   := aosp_grouper
-PRODUCT_DEVICE := grouper
-PRODUCT_BRAND  := Google
-PRODUCT_MODEL  := Nexus 7
+PRODUCT_NAME   := aosp_transformer
+PRODUCT_DEVICE := transformer
+PRODUCT_BRAND  := Transformer
+PRODUCT_MODEL  := Asus Transformer TF
 PRODUCT_MANUFACTURER := Asus

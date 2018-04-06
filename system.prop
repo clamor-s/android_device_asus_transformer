@@ -1,5 +1,5 @@
 # Set default LCD density to TVDPI
-ro.sf.lcd_density=213
+ro.sf.lcd_density=160
 
 # Wi-Fi
 wifi.interface=wlan0

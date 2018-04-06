@@ -16,18 +16,18 @@
 
 $(call inherit-product, hardware/nvidia/tegra3/tegra3.mk)
 
-PRODUCT_CHARACTERISTICS := tablet,nosdcard
+PRODUCT_CHARACTERISTICS := tablet
 
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := hdpi
+PRODUCT_AAPT_CONFIG := xlarge
+PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 # Dalvik VM config
 $(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
 
 # Init files
 PRODUCT_COPY_FILES += \
-    device/asus/grouper/rootdir/init.grouper.usb.rc:root/init.grouper.usb.rc \
-    device/asus/grouper/rootdir/ueventd.grouper.rc:root/ueventd.grouper.rc
+    device/asus/transformer/rootdir/init.transformer.usb.rc:root/init.transformer.usb.rc \
+    device/asus/transformer/rootdir/ueventd.transformer.rc:root/ueventd.transformer.rc
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -52,13 +52,13 @@ PRODUCT_COPY_FILES += \
 
 # Input device configs
 PRODUCT_COPY_FILES += \
-    device/asus/grouper/touchscreen/elan-touchscreen.idc:system/usr/idc/elan-touchscreen.idc \
-    device/asus/grouper/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
+    device/asus/transformer/touchscreen/elan-touchscreen.idc:system/usr/idc/elan-touchscreen.idc \
+    device/asus/transformer/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
 
 # GPS
 PRODUCT_COPY_FILES += \
-    device/asus/grouper/gps/gps.conf:system/etc/gps.conf \
-    device/asus/grouper/gps/gps.xml:system/etc/gps.xml
+    device/asus/transformer/gps/gps.conf:system/etc/gps.conf \
+    device/asus/transformer/gps/gps.xml:system/etc/gps.xml
 
 PRODUCT_PACKAGES += \
     libgpsd-compat \
@@ -73,7 +73,7 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf
 
 WIFI_BAND := 802_11_BG
-$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
 
 # HALs
 PRODUCT_PACKAGES += \
@@ -82,7 +82,7 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_COPY_FILES += \
-    device/asus/grouper/sensors/sensors-load-calibration.sh:system/bin/sensors-load-calibration.sh
+    device/asus/transformer/sensors/sensors-load-calibration.sh:system/bin/sensors-load-calibration.sh
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -117,10 +117,9 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-    device/asus/grouper/media/media_profiles.xml:system/etc/media_profiles.xml \
-    device/asus/grouper/media/media_codecs.xml:system/etc/media_codecs.xml
+    device/asus/transformer/media/media_profiles.xml:system/etc/media_profiles.xml \
+    device/asus/transformer/media/media_codecs.xml:system/etc/media_codecs.xml
 
 # Vendor blobs
-$(call inherit-product, vendor/asus/grouper/asus-vendor.mk)
-$(call inherit-product, vendor/broadcom/grouper/broadcom-vendor.mk)
-$(call inherit-product, vendor/invensense/grouper/invensense-vendor.mk)
+$(call inherit-product, vendor/asus/transformer/asus-vendor.mk)
+$(call inherit-product, vendor/broadcom/transformer/broadcom-vendor.mk)

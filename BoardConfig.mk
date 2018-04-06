@@ -12,9 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-TARGET_RELEASETOOLS_EXTENSIONS := device/asus/grouper
+TARGET_RELEASETOOLS_EXTENSIONS := device/asus/transformer
 
--include vendor/asus/grouper/BoardConfigVendor.mk
-include device/asus/grouper/BoardConfigCommon.mk
+-include vendor/asus/transformer/BoardConfigVendor.mk
+include device/asus/transformer/BoardConfigCommon.mk
 
-TARGET_RECOVERY_FSTAB := device/asus/grouper/rootdir/fstab.grouper
+TARGET_RECOVERY_FSTAB := device/asus/transformer/rootdir/fstab.transformer

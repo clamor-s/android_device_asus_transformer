@@ -1,7 +1,7 @@
 import init.tegra3.rc
 
-import init.grouper.sensors.rc
-import init.grouper.usb.rc
+import init.transformer.sensors.rc
+import init.transformer.usb.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -21,7 +21,7 @@ on early-boot
     setprop ro.audio.flinger_standbytime_ms 15000
 
 on fs
-    mount_all /fstab.grouper
+    mount_all /fstab.transformer
 
     mkdir /per 0700 root root
     mount vfat /dev/block/platform/sdhci-tegra.3/by-name/PER /per ro context=u:object_r:oemfs:s0

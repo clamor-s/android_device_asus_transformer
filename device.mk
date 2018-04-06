@@ -15,15 +15,15 @@
 #
 
 # the actual meat of the device-specific product definition
-$(call inherit-product, device/asus/grouper/device-common.mk)
+$(call inherit-product, device/asus/transformer/device-common.mk)
 
 PRODUCT_COPY_FILES += \
-    device/asus/grouper/rootdir/fstab.grouper:root/fstab.grouper \
-    device/asus/grouper/rootdir/init.grouper.rc:root/init.grouper.rc \
-    device/asus/grouper/rootdir/init.grouper.sensors.rc:root/init.grouper.sensors.rc
+    device/asus/transformer/rootdir/fstab.transformer:root/fstab.transformer \
+    device/asus/transformer/rootdir/init.transformer.rc:root/init.transformer.rc \
+    device/asus/transformer/rootdir/init.transformer.sensors.rc:root/init.transformer.sensors.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=wifi-only
 
 DEVICE_PACKAGE_OVERLAYS += \
-    device/asus/grouper/overlay
+    device/asus/transformer/overlay
