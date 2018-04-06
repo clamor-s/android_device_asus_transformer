@@ -19,8 +19,7 @@ $(call inherit-product, device/asus/transformer/device-common.mk)
 
 PRODUCT_COPY_FILES += \
     device/asus/transformer/rootdir/fstab.transformer:root/fstab.transformer \
-    device/asus/transformer/rootdir/init.transformer.rc:root/init.transformer.rc \
-    device/asus/transformer/rootdir/init.transformer.sensors.rc:root/init.transformer.sensors.rc
+    device/asus/transformer/rootdir/init.transformer.rc:root/init.transformer.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=wifi-only
