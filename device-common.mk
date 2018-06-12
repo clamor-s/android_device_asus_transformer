@@ -64,7 +64,9 @@ PRODUCT_PACKAGES += \
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
-    device/asus/transformer/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
+    device/asus/transformer/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+    device/asus/transformer/wifi/nvram_nh615.txt:system/etc/nvram_nh615.txt \
+    device/asus/transformer/wifi/nvram_nh665.txt:system/etc/nvram_nh665.txt
 
 PRODUCT_PACKAGES += \
     libwpa_client \
