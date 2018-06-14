@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-TARGET_RELEASETOOLS_EXTENSIONS := device/asus/transformer
-
 -include vendor/asus/transformer/BoardConfigVendor.mk
 include device/asus/transformer/BoardConfigCommon.mk
 
