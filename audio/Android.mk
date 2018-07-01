@@ -27,6 +27,8 @@ LOCAL_C_INCLUDES += \
 	$(call include-path-for, audio-utils) \
 	$(call include-path-for, audio-route)
 
+LOCAL_CFLAGS := -Wall -Werror
+
 LOCAL_SHARED_LIBRARIES := liblog libcutils libtinyalsa libaudioutils libaudioroute
 
 include $(BUILD_SHARED_LIBRARY)
