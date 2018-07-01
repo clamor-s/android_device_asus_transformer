@@ -37,21 +37,21 @@
 #include <audio_utils/resampler.h>
 #include <audio_route/audio_route.h>
 
-#define PCM_CARD 0
+#define PCM_CARD 1
 #define PCM_DEVICE 0
 #define PCM_DEVICE_SCO 2
 
-#define MIXER_CARD 0
+#define MIXER_CARD 1
 
 #define OUT_PERIOD_SIZE 512
 #define OUT_SHORT_PERIOD_COUNT 2
 #define OUT_LONG_PERIOD_COUNT 8
-#define OUT_SAMPLING_RATE 44100
+#define OUT_SAMPLING_RATE 48000
 
 #define IN_PERIOD_SIZE 1024
 #define IN_PERIOD_SIZE_LOW_LATENCY 512
 #define IN_PERIOD_COUNT 2
-#define IN_SAMPLING_RATE 44100
+#define IN_SAMPLING_RATE 48000
 
 #define SCO_PERIOD_SIZE 256
 #define SCO_PERIOD_COUNT 4
@@ -109,7 +109,6 @@ struct audio_device {
     bool standby;
     bool mic_mute;
     struct audio_route *ar;
-    int orientation;
     bool screen_off;
 
     struct stream_out *active_out;
@@ -155,13 +154,6 @@ struct stream_in {
     struct audio_device *dev;
 };
 
-enum {
-    ORIENTATION_LANDSCAPE,
-    ORIENTATION_PORTRAIT,
-    ORIENTATION_SQUARE,
-    ORIENTATION_UNDEFINED,
-};
-
 static uint32_t out_get_sample_rate(const struct audio_stream *stream);
 static size_t out_get_buffer_size(const struct audio_stream *stream);
 static audio_format_t out_get_format(const struct audio_stream *stream);
@@ -202,12 +194,8 @@ static void select_devices(struct audio_device *adev)
         audio_route_apply_path(adev->ar, "headphone");
     if (docked)
         audio_route_apply_path(adev->ar, "dock");
-    if (main_mic_on) {
-        if (adev->orientation == ORIENTATION_LANDSCAPE)
-            audio_route_apply_path(adev->ar, "main-mic-left");
-        else
-            audio_route_apply_path(adev->ar, "main-mic-top");
-    }
+    if (main_mic_on)
+        audio_route_apply_path(adev->ar, "builtin-mic");
 
     audio_route_update_mixer(adev->ar);
 
@@ -958,39 +946,10 @@ static int adev_set_parameters(struct audio_hw_device *dev, const char *kvpairs)
 {
     struct audio_device *adev = (struct audio_device *)dev;
     struct str_parms *parms;
-    char *str;
     char value[32];
     int ret;
 
     parms = str_parms_create_str(kvpairs);
-    ret = str_parms_get_str(parms, "orientation", value, sizeof(value));
-    if (ret >= 0) {
-        int orientation;
-
-        if (strcmp(value, "landscape") == 0)
-            orientation = ORIENTATION_LANDSCAPE;
-        else if (strcmp(value, "portrait") == 0)
-            orientation = ORIENTATION_PORTRAIT;
-        else if (strcmp(value, "square") == 0)
-            orientation = ORIENTATION_SQUARE;
-        else
-            orientation = ORIENTATION_UNDEFINED;
-
-        pthread_mutex_lock(&adev->lock);
-        if (orientation != adev->orientation) {
-            adev->orientation = orientation;
-            /*
-             * Orientation changes can occur with the input device
-             * closed so we must call select_devices() here to set
-             * up the mixer. This is because select_devices() will
-             * not be called when the input device is opened if no
-             * other input parameter is changed.
-             */
-            select_devices(adev);
-        }
-        pthread_mutex_unlock(&adev->lock);
-    }
-
     ret = str_parms_get_str(parms, "screen_state", value, sizeof(value));
     if (ret >= 0) {
         if (strcmp(value, AUDIO_PARAMETER_VALUE_ON) == 0)
@@ -1175,7 +1134,6 @@ static int adev_open(const hw_module_t* module, const char* name,
     adev->hw_device.dump = adev_dump;
 
     adev->ar = audio_route_init(MIXER_CARD, NULL);
-    adev->orientation = ORIENTATION_UNDEFINED;
     adev->out_device = AUDIO_DEVICE_OUT_SPEAKER;
     adev->in_device = AUDIO_DEVICE_IN_BUILTIN_MIC & ~AUDIO_DEVICE_BIT_IN;
 
@@ -1195,7 +1153,7 @@ struct audio_module HAL_MODULE_INFO_SYM = {
         .module_api_version = AUDIO_MODULE_API_VERSION_0_1,
         .hal_api_version = HARDWARE_HAL_API_VERSION,
         .id = AUDIO_HARDWARE_MODULE_ID,
-        .name = "Grouper audio HW HAL",
+        .name = "Transformer audio HW HAL",
         .author = "The Android Open Source Project",
         .methods = &hal_module_methods,
     },

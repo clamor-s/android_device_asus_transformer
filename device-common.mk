@@ -79,9 +79,8 @@ PRODUCT_PACKAGES += \
 WIFI_BAND := 802_11_BG
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
 
-# HALs
+# Lights HAL
 PRODUCT_PACKAGES += \
-    audio.primary.grouper \
     lights.transformer
 
 # Sensors HAL
@@ -96,15 +95,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/asus/transformer/sensors/sensors-load-calibration.sh:system/bin/sensors-load-calibration.sh
 
-# Audio
+# Audio HAL
 PRODUCT_PACKAGES += \
+    audio.primary.transformer \
     audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default
 
 PRODUCT_COPY_FILES += \
-    device/asus/grouper/audio/audio_policy.conf:system/etc/audio_policy.conf \
-    device/asus/grouper/audio/mixer_paths.xml:system/etc/mixer_paths.xml
+    device/asus/transformer/audio/audio_policy.conf:system/etc/audio_policy.conf \
+    device/asus/transformer/audio/mixer_paths.xml:system/etc/mixer_paths.xml
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
