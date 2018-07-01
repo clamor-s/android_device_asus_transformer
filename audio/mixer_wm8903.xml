@@ -1,0 +1,47 @@
+<!-- Mixer configuration file for TF300T -->
+
+<mixer>
+  <!-- playback paths-->
+  <ctl name="DRC Switch" value="1" />
+  <ctl name="Left Speaker Mixer DACL Switch" value="1" />
+  <ctl name="Right Speaker Mixer DACR Switch" value="1" />
+  <ctl name="Headphone Switch" value="1" />
+  <ctl name="HPF Mode" value="Hi-fi" />
+  <!-- capture paths-->
+  <ctl name="Left Input PGA Volume" value="0x1C" />
+  <ctl name="Right Input PGA Volume" value="0x1C" />
+
+  <path name="speaker">
+    <ctl name="Int Spk Switch" value="1" />
+    <ctl name="Speaker Switch" value="1" />
+  </path>
+
+  <path name="headphone">
+    <ctl name="Headphone Jack Switch" value="1" />
+  </path>
+
+  <path name="dock">
+    <ctl name="AUX Switch" value="1" />
+  </path>
+
+  <path name="builtin-mic">
+    <ctl name="Recording Gain" value="0" />
+    <ctl name="Left Input PGA Common Mode Switch" value="1" />
+    <ctl name="Left Capture Mux" value="Left" />
+    <ctl name="Left Input PGA Switch" value="0" />
+    <ctl name="ADC Input" value="DMIC" />
+    <ctl name="Int Mic Switch" value="1" />
+  </path>
+
+  <path name="headset-mic">
+    <ctl name="Recording Gain" value="1" />
+    <ctl name="Left Input PGA Common Mode Switch" value="0" />
+    <ctl name="Left Input Inverting Mux" value="IN2L" />
+    <ctl name="Left Input Mux" value="IN1L" />
+    <ctl name="Left Capture Mux" value="Left" />
+    <ctl name="Right Capture Mux" value="Left" />
+    <ctl name="Left Input PGA Switch" value="1" />
+    <ctl name="ADC Input" value="ADC" />
+    <ctl name="Mic Jack Switch" value="1" />
+  </path>
+</mixer>
