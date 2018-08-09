@@ -27,48 +27,62 @@
     "Invensense",                                       \
     1, ID_RV,                                           \
     SENSOR_TYPE_ROTATION_VECTOR, 10240.0f, 1.0f,        \
-    0.5f, 20000,{ } }
+    0.5f, 20000, 0, 0,                                  \
+    SENSOR_STRING_TYPE_ROTATION_VECTOR, 0, 0,           \
+    SENSOR_FLAG_CONTINUOUS_MODE, { } }
 
 #define MPLLINEARACCEL_DEF {                            \
     "MPL linear accel",                                 \
     "Invensense",                                       \
     1, ID_LA,                                           \
     SENSOR_TYPE_LINEAR_ACCELERATION, 10240.0f, 1.0f,    \
-    0.5f, 20000,{ } }
+    0.5f, 20000, 0, 0,                                  \
+    SENSOR_STRING_TYPE_LINEAR_ACCELERATION, 0, 0,       \
+    SENSOR_FLAG_CONTINUOUS_MODE, { } }
 
 #define MPLGRAVITY_DEF {                                \
     "MPL gravity",                                      \
     "Invensense",                                       \
     1, ID_GR,                                           \
     SENSOR_TYPE_GRAVITY, 10240.0f, 1.0f,                \
-    0.5f, 20000,{ } }
+    0.5f, 20000, 0, 0,                                  \
+    SENSOR_STRING_TYPE_GRAVITY, 0, 0,                   \
+    SENSOR_FLAG_CONTINUOUS_MODE, { } }
 
 #define MPLGYRO_DEF {                                   \
     "MPL Gyro",                                         \
     "Invensense",                                       \
     1, ID_GY,                                           \
     SENSOR_TYPE_GYROSCOPE, 10240.0f, 1.0f,              \
-    0.5f, 20000,{ } }
+    0.5f, 20000, 0, 0,                                  \
+    SENSOR_STRING_TYPE_GYROSCOPE, 0, 0,                 \
+    SENSOR_FLAG_CONTINUOUS_MODE, { } }
 
 #define MPLACCEL_DEF {                                  \
     "MPL accel",                                        \
     "Invensense",                                       \
     1, ID_A,                                            \
     SENSOR_TYPE_ACCELEROMETER, 10240.0f, 1.0f,          \
-    0.5f, 20000,{ } }
+    0.5f, 20000, 0, 0,                                  \
+    SENSOR_STRING_TYPE_ACCELEROMETER, 0, 0,             \
+    SENSOR_FLAG_CONTINUOUS_MODE, { } }
 
 #define MPLMAGNETICFIELD_DEF {                          \
     "MPL magnetic field",                               \
     "Invensense",                                       \
     1, ID_M,                                            \
     SENSOR_TYPE_MAGNETIC_FIELD, 10240.0f, 1.0f,         \
-    0.5f, 20000,{ } }
+    0.5f, 20000, 0, 0,                                  \
+    SENSOR_STRING_TYPE_MAGNETIC_FIELD, 0, 0,            \
+    SENSOR_FLAG_CONTINUOUS_MODE, { } }
 
 #define MPLORIENTATION_DEF {                            \
     "MPL Orientation",                                  \
     "Invensense",                                       \
     1, ID_O,                                            \
     SENSOR_TYPE_ORIENTATION, 360.0f, 1.0f,              \
-    9.7f, 20000,{ } }
+    9.7f, 20000, 0, 0,                                  \
+    SENSOR_STRING_TYPE_ORIENTATION, 0, 0,               \
+    SENSOR_FLAG_CONTINUOUS_MODE, { } }
 
 #endif
