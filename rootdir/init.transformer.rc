@@ -25,6 +25,10 @@ on fs
     mkdir /per 0700 root root
     mount vfat /dev/block/mmcblk0p5 /per ro context=u:object_r:oemfs:s0
 
+on load_system_props_action
+    # Used to ensure lcd_density is only written once
+    setprop sf.lcd_density.written 0
+
 on post-fs-data
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
@@ -122,3 +126,11 @@ service gpsd /vendor/bin/gpsd -c /system/etc/gps.xml
 on property:sys.shutdown.requested=1recovery
     start recoveryd
 
+# Detect resolution and set appropriate density
+on property:persist.sys.NV_DISPXRES=1280 && property:sf.lcd_density.written=0
+    setprop ro.sf.lcd_density 160
+    setprop sf.lcd_density.written 1
+
+on property:persist.sys.NV_DISPXRES=1920 && property:sf.lcd_density.written=0
+    setprop ro.sf.lcd_density 240
+    setprop sf.lcd_density.written 1
