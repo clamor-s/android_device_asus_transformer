@@ -67,8 +67,5 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/asus/transformer/bluetooth
 # Sensors
 BOARD_USES_INVENSENSE_GYRO := INVENSENSE_MPU3050
 
-# Dump State
-BOARD_HAL_STATIC_LIBRARIES := libdumpstate.transformer
-
 # Security
 BOARD_SEPOLICY_DIRS += device/asus/transformer/sepolicy
