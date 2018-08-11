@@ -16,3 +16,5 @@
 include device/asus/transformer/BoardConfigCommon.mk
 
 TARGET_RECOVERY_FSTAB := device/asus/transformer/rootdir/fstab.transformer
+
+DEVICE_MANIFEST_FILE := device/asus/transformer/manifest.xml
