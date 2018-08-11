@@ -1132,7 +1132,7 @@ int MPLSensor::update_delay()
                 mPollPeriodSave = mPollPeriod;
             }
 
-            rv = (res == INV_SUCCESS);
+            rv = !(res == INV_SUCCESS);
         }
 
         if (((inv_get_dl_config()->inv_mpu_cfg->requested_sensors &
