@@ -109,8 +109,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     device/asus/transformer/audio/audio_policy.conf:system/etc/audio_policy.conf \
-    device/asus/transformer/audio/mixer_rt5631.xml:system/etc/mixer_rt5631.xml \
-    device/asus/transformer/audio/mixer_wm8903.xml:system/etc/mixer_wm8903.xml
+    device/asus/transformer/audio/mixer_rt5631.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_rt5631.xml \
+    device/asus/transformer/audio/mixer_wm8903.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_wm8903.xml
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \

@@ -42,8 +42,8 @@
 #define PCM_DEVICE_SCO 2
 
 #define MIXER_CARD 1
-#define MIXER_RT5631 "/system/etc/mixer_rt5631.xml"
-#define MIXER_WM8903 "/system/etc/mixer_wm8903.xml"
+#define MIXER_RT5631 "/vendor/etc/mixer_rt5631.xml"
+#define MIXER_WM8903 "/vendor/etc/mixer_wm8903.xml"
 
 #define HDMI_CARD 0
 #define HDMI_DEVICE 3
