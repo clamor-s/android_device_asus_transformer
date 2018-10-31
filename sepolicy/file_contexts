@@ -1,8 +1,11 @@
 # Devices
-/dev/lightsensor                  u:object_r:sensors_device:s0
-/dev/mi1040                       u:object_r:video_device:s0
-/dev/ttyHS1                       u:object_r:gps_device:s0
-/dev/ttyHS2                       u:object_r:hci_attach_dev:s0
+/dev/mpu                                                     u:object_r:sensors_device:s0
+/dev/mpuirq                                                  u:object_r:sensors_device:s0
+/dev/accelirq                                                u:object_r:sensors_device:s0
+/dev/timerirq                                                u:object_r:sensors_device:s0
+/dev/mi1040                                                  u:object_r:video_device:s0
+/dev/ttyHS1                                                  u:object_r:gps_device:s0
+/dev/ttyHS2                                                  u:object_r:hci_attach_dev:s0
 
 # System and vendor files
 /system/vendor/bin/sensors\.tegra                            u:object_r:sensors_exec:s0
@@ -14,10 +17,13 @@
 /sys/devices/platform/bcm4329_rfkill/rfkill/rfkill0/type     u:object_r:sysfs_bluetooth_writable:s0
 /sys/devices/platform/tegra-i2c.2/i2c-2/2-001c/calibration   u:object_r:sysfs_firmware_writable:s0
 
+# Data files
+/data/cal.bin                                                u:object_r:sensors_data_file:s0
+
 # Block devices
-/dev/block/mmcblk0               u:object_r:root_block_device:s0
-/dev/block/mmcblk0p10            u:object_r:boot_block_device:s0
-/dev/block/mmcblk0p9             u:object_r:recovery_block_device:s0
-/dev/block/mmcblk0p1             u:object_r:system_block_device:s0
-/dev/block/mmcblk0p2             u:object_r:cache_block_device:s0
-/dev/block/mmcblk0p8             u:object_r:userdata_block_device:s0
+/dev/block/mmcblk0                                           u:object_r:root_block_device:s0
+/dev/block/mmcblk0p10                                        u:object_r:boot_block_device:s0
+/dev/block/mmcblk0p9                                         u:object_r:recovery_block_device:s0
+/dev/block/mmcblk0p1                                         u:object_r:system_block_device:s0
+/dev/block/mmcblk0p2                                         u:object_r:cache_block_device:s0
+/dev/block/mmcblk0p8                                         u:object_r:userdata_block_device:s0

@@ -1,0 +1,10 @@
+# Handle mpu, mpuirq, accelirq, timerirq
+allow hal_sensors_default sensors_device:chr_file rw_file_perms;
+
+# Work with /data/cal.bin
+allow hal_sensors_default sensors_data_file:file r_file_perms;
+
+# Work with input devices
+allow hal_sensors_default input_device:dir r_dir_perms;
+allow hal_sensors_default input_device:chr_file r_file_perms;
+allow hal_sensors_default sysfs:file rw_file_perms;

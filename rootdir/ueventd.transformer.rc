@@ -41,10 +41,10 @@
 /dev/spdif*     0660    system  audio
 /dev/asusdec    0660    system  system
 /dev/asuspec    0660    system  system
-/dev/mpu        0640	system	system
-/dev/mpuirq     0640	system	system
-/dev/accelirq   0640	system	system
-/dev/timerirq   0640	system	system
+/dev/mpu        0640    system  system
+/dev/mpuirq     0640    system  system
+/dev/accelirq   0640    system  system
+/dev/timerirq   0640    system  system
 /dev/dsp_fm34   0660    system  audio
 /dev/rt5631     0660    system  audio
 /dev/wm8903     0660    system  audio
@@ -52,6 +52,9 @@
 /dev/ttyUSB*    0660    radio    system
 /dev/ttyHS1     0664    root     system
 /dev/ttyHS2     0660    bluetooth   bluetooth
+
+# Input devices
+/dev/input/event2 0660  system  input
 
 #for FM V4L2 Radio
 /dev/radio      0666    system  radio

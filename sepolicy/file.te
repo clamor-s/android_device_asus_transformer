@@ -1,2 +1,6 @@
+# Sysfs types
 type sysfs_firmware_writable, fs_type, sysfs_type;
 type sysfs_gps_writable, fs_type, sysfs_type;
+
+# Data file types
+type sensors_data_file, file_type, data_file_type;
