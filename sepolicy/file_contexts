@@ -5,7 +5,7 @@
 /dev/ttyHS2                       u:object_r:hci_attach_dev:s0
 
 # System and vendor files
-/system/bin/sensors-load-calibration.sh  u:object_r:sensors_load_calibration_exec:s0
+/system/vendor/bin/sensors\.tegra                            u:object_r:sensors_exec:s0
 
 # Sysfs files
 /sys/class/gpio/gpio162/value                                u:object_r:sysfs_gps_writable:s0
