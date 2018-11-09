@@ -56,8 +56,8 @@ PRODUCT_COPY_FILES += \
 
 # GPS
 PRODUCT_COPY_FILES += \
-    device/asus/transformer/gps/gps.conf:system/etc/gps.conf \
-    device/asus/transformer/gps/gps.xml:system/etc/gps.xml
+    device/asus/transformer/gps/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
+    device/asus/transformer/gps/gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gps.xml
 
 PRODUCT_PACKAGES += \
     libgpsd-compat \
