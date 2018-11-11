@@ -94,6 +94,10 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
     android.hardware.vibrator@1.0-service
 
+# Keystore HAL
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-service
+
 # Lights HAL
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl \

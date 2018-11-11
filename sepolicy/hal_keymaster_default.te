@@ -1,0 +1,2 @@
+# Allow working with tf_driver
+allow hal_keymaster_default tee_device:chr_file rw_file_perms;

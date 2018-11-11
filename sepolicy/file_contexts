@@ -3,6 +3,7 @@
 /dev/mpuirq                                                  u:object_r:sensors_device:s0
 /dev/accelirq                                                u:object_r:sensors_device:s0
 /dev/timerirq                                                u:object_r:sensors_device:s0
+/dev/tf_driver                                               u:object_r:tee_device:s0
 /dev/mi1040                                                  u:object_r:video_device:s0
 /dev/ttyHS1                                                  u:object_r:gps_device:s0
 /dev/ttyHS2                                                  u:object_r:hci_attach_dev:s0
