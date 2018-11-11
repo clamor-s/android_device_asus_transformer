@@ -1,0 +1,9 @@
+# Allow read input devices
+allow hal_power_default sysfs:file r_file_perms;
+
+# Allow to work with cpu frequencies
+allow hal_power_default pmqos_device:chr_file rw_file_perms;
+
+# Allow to write scaling_governor and boost_sclk
+allow hal_power_default sysfs_devices_system_cpu:file w_file_perms;
+allow hal_power_default sysfs_devices_nvavp:file w_file_perms;

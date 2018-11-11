@@ -98,6 +98,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-service
 
+# Power HAL
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.0-service
+
 # Lights HAL
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl \
