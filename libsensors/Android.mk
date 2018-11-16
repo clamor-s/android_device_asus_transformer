@@ -33,6 +33,15 @@ LOCAL_MODULE_PATH := $(TARGET_OUT)/lib
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
+LOCAL_MODULE := sensors.tegra
+LOCAL_PROPRIETARY_MODULE := true
+LOCAL_MODULE_TAGS := optional
+LOCAL_CFLAGS += -Wall -Werror
+LOCAL_SRC_FILES := /calibration/sensors_tegra.c
+LOCAL_SHARED_LIBRARIES := liblog libcutils
+include $(BUILD_EXECUTABLE)
+
+include $(CLEAR_VARS)
 LOCAL_MODULE := libmplmpu
 LOCAL_SRC_FILES := /prebuilt/libmplmpu.so
 LOCAL_MODULE_TAGS := optional
